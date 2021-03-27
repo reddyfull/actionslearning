@@ -1,6 +1,6 @@
 name: Build Tomcat
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build:
