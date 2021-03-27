@@ -15,10 +15,10 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Build ${{ env.FILE_NAME }} for ubuntu-latest
-      run: go build ${{ env.FILE_NAME }}.go
+      run: go build ./Ch03/03_06/${{ env.FILE_NAME }}.go
 
     - name: Build ${{ env.FILE_NAME }} for windows-latest
-      run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
+      run: GOOS=windows GOARCH=amd64 go build ./Ch03/03_06/${{ env.FILE_NAME }}.go
       
     - name: Upload artifact for linux
       uses: actions/upload-artifact@v1.0.0
@@ -47,7 +47,7 @@ jobs:
         name: linux
 
     - name: Test ${{ env.FILE_NAME }}
-      run: source ./test.sh
+      run: source ./Ch03/03_06/test.sh
 
   test-windows:
     name: Test Windows
@@ -65,4 +65,3 @@ jobs:
         
     - name: Test ${{ env.FILE_NAME }}
       run: windows/${{ env.FILE_NAME }}.exe
-#
